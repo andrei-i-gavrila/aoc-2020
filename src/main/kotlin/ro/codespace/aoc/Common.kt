@@ -2,6 +2,7 @@ package ro.codespace.aoc
 
 import com.google.common.io.Resources
 import com.google.common.math.IntMath
+import java.io.BufferedReader
 import kotlin.math.abs
 
 data class Vector2(val x: Int, val y: Int) {
@@ -39,7 +40,7 @@ fun read(file: String) = Resources.getResource(file).openStream().bufferedReader
 
 fun day(number: Int) = read("day$number.txt")
 fun day(number: String) = read("day$number.txt")
-
+fun day(number: Int, testSuffix: String = "t", solver: (BufferedReader) -> Unit) = listOf(day("$number$testSuffix"), day(number)).forEach(solver)
 
 fun Int.pow(n: Int): Int {
     return IntMath.pow(this, n)
