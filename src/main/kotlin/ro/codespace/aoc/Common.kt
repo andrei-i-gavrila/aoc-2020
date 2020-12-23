@@ -108,6 +108,7 @@ fun Int.pow(n: Int): Int {
     return IntMath.pow(this, n)
 }
 
-fun Any.log() {
-    println(this)
+fun Any.log(message: String = "") {
+    if (message.isNotBlank()) println("$message: $this")
+    else println(this)
 }
